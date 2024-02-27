@@ -1,5 +1,14 @@
 # george trammell
 # this script downloads and merges PDFs from GCP documentation, uses a temp folder that it automatically cleans up if successful
+
+# what's gonna sound cool enough:
+# everything is in soup now
+# download and hardcode the terraform docs
+# as for the GCP docs, write a good enough scraping script but the rest will have to be manual
+# all the langchain and HC stuff in chat
+# im still working on making the webscraping script, I have to change a lot of stuff because I learned that LangChain
+# wants me to use all of its own libraries every step of the way, including its own BS4 transformer
+# will probably make sample data for yall to start playing with because this is intensive
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import pdfkit

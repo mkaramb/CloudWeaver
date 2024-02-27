@@ -1,0 +1,24 @@
+* WHEN USING FOR INPUT DATA, REMOVE ANY HIDDEN FILES AND THIS TEXT FILE *
+
+feb 27
+changes:
+- purged all non-terraform files (some python, json, js, lots of yaml)
+- cleaning up folder names to be relevant, reorganized things
+- removed .github folder
+
+notes:
+
+- i think we might need to make a "dictionary" for the model of google cloud terms (mainly confusing acronyms), so it knows when things are essentially synonyms, or at least it knows how to find information for something called PITR. maybe this info could be implemented in the self-querying retriever logic? maybe this can just be context we pass in directly?
+
+
+** ACRONYMS THAT NEED TO BE DEFINED OR RECONCILED: **
+
+- CMEK (Customer-Managed Encryption Keys)
+- IAM
+- PITR (point-in-time recovery)
+- HA (high availability)
+- PSC (private service connect)
+- GKE
+- LB (load balancer)
+- composer (Cloud Composer)
+- HMAC keys

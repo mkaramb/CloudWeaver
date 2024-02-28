@@ -6,6 +6,11 @@ changes:
 - cleaning up folder names to be relevant, reorganized things
 - removed .github folder
 
+feb 27 part 2
+changes:
+- removed licensing blocks with python script
+- renamed anything called "main.tf" to its parent directory, left others alone
+
 notes:
 
 - i think we might need to make a "dictionary" for the model of google cloud terms (mainly confusing acronyms), so it knows when things are essentially synonyms, or at least it knows how to find information for something called PITR. maybe this info could be implemented in the self-querying retriever logic? maybe this can just be context we pass in directly?

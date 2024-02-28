@@ -1,0 +1,29 @@
+# [START bigquery_create_materialized_view]
+resource "google_bigquery_dataset" "default" {
+  dataset_id                      = "mydataset"
+  default_partition_expiration_ms = 2592000000  # 30 days
+  default_table_expiration_ms     = 31536000000 # 365 days
+  description                     = "dataset description"
+  location                        = "US"
+  max_time_travel_hours           = 96 # 4 days
+
+  labels = {
+    billing_group = "accounting",
+    pii           = "sensitive"
+  }
+}
+
+resource "google_bigquery_table" "default" {
+  dataset_id          = google_bigquery_dataset.default.dataset_id
+  table_id            = "my_materialized_view"
+  deletion_protection = false # set to "true" in production
+
+  materialized_view {
+    query                            = "SELECT ID, description, date_created FROM `myproject.orders.items`"
+    enable_refresh                   = "true"
+    refresh_interval_ms              = 172800000 # 2 days
+    allow_non_incremental_definition = "false"
+  }
+
+}
+# [END bigquery_create_materialized_view]

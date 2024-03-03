@@ -1,0 +1,26 @@
+[
+    {
+        "template_folder": "./autogen",
+        "path": "./modules/dynamic_backends",
+        "options": {
+            "module_path": "//modules/dynamic_backends",
+            "dynamic_backends": true
+        }
+    },
+    {
+        "template_folder": "./autogen",
+        "path": "./modules/serverless_negs",
+        "options": {
+            "module_path": "//modules/serverless_negs",
+            "serverless": true
+        }
+    },
+    {
+        "template_folder": "./autogen",
+        "path": "./",
+        "options": {
+            "module_path": "",
+            "root": true
+        }
+    }
+]

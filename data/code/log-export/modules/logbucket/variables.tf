@@ -1,0 +1,65 @@
+
+variable "project_id" {
+  description = "The ID of the project in which the log bucket will be created."
+  type        = string
+}
+
+variable "log_sink_writer_identity" {
+  description = "The service account that logging uses to write log entries to the destination. (This is available as an output coming from the root module)."
+  type        = string
+}
+
+variable "name" {
+  description = "The name of the log bucket to be created and used for log entries matching the filter."
+  type        = string
+}
+
+variable "location" {
+  description = "The location of the log bucket."
+  type        = string
+  default     = "global"
+}
+
+variable "retention_days" {
+  description = "The number of days data should be retained for the log bucket."
+  type        = number
+  default     = 30
+}
+
+variable "grant_write_permission_on_bkt" {
+  description = "(Optional) Indicates whether the module is responsible for granting write permission on the logbucket. This permission will be given by default, but if the user wants, this module can skip this step. This is the case when the sink route logs to a log bucket in the same Cloud project, no new service account will be created and this module will need to bypass granting permissions."
+  type        = bool
+  default     = true
+}
+
+variable "enable_analytics" {
+  description = "(Optional) Whether or not Log Analytics is enabled. A Log bucket with Log Analytics enabled can be queried in the Log Analytics page using SQL queries. Cannot be disabled once enabled."
+  type        = bool
+  default     = false
+}
+
+variable "linked_dataset_id" {
+  description = "The ID of the linked BigQuery dataset. A valid link dataset ID must only have alphanumeric characters and underscores within it and have up to 100 characters."
+  type        = string
+  default     = null
+}
+
+variable "linked_dataset_description" {
+  description = "A use-friendly description of the linked BigQuery dataset. The maximum length of the description is 8000 characters."
+  type        = string
+  default     = null
+}
+
+variable "locked" {
+  description = "(Optional) Whether the bucket is locked. The retention period on a locked bucket cannot be changed. Locked buckets may only be deleted if they are empty"
+  default     = null
+  type        = bool
+}
+
+variable "kms_key_name" {
+  description = "To enable CMEK for a project logging bucket, set this field to a valid name. The associated service account requires cloudkms.cryptoKeyEncrypterDecrypter roles assigned for the key.The kms_key_name should be of the format projects/{project ID}/locations/{region}/keyRings/{keyring name}/cryptoKeys/{key name} "
+  type        = string
+  default     = null
+}
+
+

@@ -1,0 +1,145 @@
+
+variable "project_id" {
+  description = "The project ID used for the Datalab instance"
+  type        = string
+}
+
+variable "name" {
+  description = "The name of the Datalab instance"
+  type        = string
+  default     = "datalab"
+}
+
+variable "zone" {
+  description = "The zone the Datalab instance will be deployed to"
+  type        = string
+}
+
+variable "network_name" {
+  description = "The network the Datalab instance will be in"
+  type        = string
+}
+
+variable "subnet_name" {
+  description = "The subnet the Datalab instance will be in"
+  type        = string
+}
+
+variable "service_account" {
+  description = "The service account attached to the Datalab instance. If empty the default Google Compute Engine service account is used"
+  type        = string
+  default     = null
+}
+
+variable "machine_type" {
+  description = "The machine type for the Datalab instance"
+  type        = string
+  default     = "n1-standard-2"
+}
+
+variable "boot_disk_size_gb" {
+  description = "The boot disk size in gb for the Datalab instance"
+  type        = number
+  default     = 20
+}
+
+variable "persistent_disk_size_gb" {
+  description = "The persistent disk size in gb for the Datalab instance"
+  type        = number
+  default     = 200
+}
+
+variable "create_disk" {
+  description = "Create a persistent data disk"
+  type        = bool
+  default     = true
+}
+
+variable "existing_disk_name" {
+  description = "Name of an existing persistent disk you want to use"
+  type        = string
+  default     = null
+}
+
+variable "datalab_enable_swap" {
+  description = "Enable swap on the Datalab instance"
+  type        = bool
+  default     = true
+}
+
+variable "datalab_enable_backup" {
+  description = "Automatically backup the disk contents to Cloud Storage"
+  type        = bool
+  default     = true
+}
+
+variable "datalab_console_log_level" {
+  description = "The log level for which log entries from the Datalab instance will be written to StackDriver logging. Valid choices: (trace,debug,info,warn,error,fatal)"
+  type        = string
+  default     = "warn"
+}
+
+variable "datalab_user_email" {
+  description = "Create the Datalab instance on behalf of the specified user"
+  type        = string
+}
+
+variable "datalab_idle_timeout" {
+  description = "Interval after which an idle Datalab instance will shut down. You can specify a mix of days, hours, minutes and seconds using those names or d, h, m and s, for example 1h 30m. Specify 0s to disable"
+  type        = string
+  default     = "60m"
+}
+
+variable "fluentd_docker_image" {
+  description = "Fluentd docker image to use"
+  type        = string
+  default     = "gcr.io/google-containers/fluentd-gcp:2.0.17"
+}
+
+variable "datalab_docker_image" {
+  description = "Datalab docker image to use. If not set latest gcr.io/cloud-datalab/datalab or datalab-gpu image will be used"
+  default     = null
+  type        = string
+}
+
+variable "gpu_instance" {
+  description = "Whether or not create GPU instance instead of a CPU instance"
+  default     = false
+  type        = bool
+}
+
+variable "gpu_count" {
+  description = "Number of GPUs for the Datalab instance. Valid values are: 0, 1, 2, 4, 8. Only applicable when gpu_instance is true"
+  type        = number
+  default     = 0
+}
+
+variable "gpu_type" {
+  description = "The GPU type for the Datalab instance. Only applicable when gpu_instance is true"
+  type        = string
+  default     = "nvidia-tesla-k80"
+}
+
+variable "append_to_startup_script" {
+  default     = null
+  description = "Full path to file with content to be added to the startup script."
+  type        = string
+}
+
+variable "create_fw_rule" {
+  default     = true
+  description = "Flag to create Firewall rule for SSH access to Datalab"
+  type        = bool
+}
+
+variable "labels" {
+  description = "A map of key/value label pairs to assign to the instance."
+  type        = map(string)
+  default     = {}
+}
+
+variable "enable_secure_boot" {
+  type        = bool
+  description = "Verify the digital signature of all boot components, and halt the boot process if signature verification fails"
+  default     = false
+}

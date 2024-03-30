@@ -1,0 +1,84 @@
+
+/** Providers **/
+
+provider "google" {
+  project = var.project_id
+  region  = var.region
+}
+
+provider "google-beta" {
+  project = var.project_id
+  region  = var.region
+}
+
+resource "random_string" "suffix" {
+  length  = 4
+  special = "false"
+  upper   = "false"
+}
+
+/** Network **/
+
+resource "google_compute_network" "main" {
+  project                 = var.project_id
+  name                    = "cft-vm-test-${random_string.suffix.result}"
+  auto_create_subnetworks = "false"
+}
+
+resource "google_compute_subnetwork" "main" {
+  project       = var.project_id
+  region        = var.region
+  name          = "cft-vm-test-${random_string.suffix.result}"
+  ip_cidr_range = "10.128.0.0/20"
+  network       = google_compute_network.main.self_link
+}
+
+/** Instance Template **/
+
+module "instance_template" {
+  source  = "terraform-google-modules/vm/google//modules/instance_template"
+  version = "~> 11.0"
+
+  project_id      = var.project_id
+  subnetwork      = google_compute_subnetwork.main.name
+  service_account = var.service_account
+}
+
+/** Instance Group within autoscale and health check **/
+
+module "mig" {
+  source  = "terraform-google-modules/vm/google//modules/mig"
+  version = "~> 11.0"
+
+  project_id          = var.project_id
+  instance_template   = module.instance_template.self_link
+  region              = var.region
+  autoscaling_enabled = true
+  min_replicas        = 2
+  autoscaler_name     = "mig-as"
+  hostname            = "mig-as"
+
+  autoscaling_cpu = [
+    {
+      target            = 0.4
+      predictive_method = null # use default of NONE
+    },
+  ]
+
+  health_check_name = "mig-https-hc"
+  health_check = {
+    type                = "https"
+    initial_delay_sec   = 120
+    check_interval_sec  = 5
+    healthy_threshold   = 2
+    timeout_sec         = 5
+    unhealthy_threshold = 2
+    response            = ""
+    proxy_header        = "NONE"
+    port                = 443
+    request             = ""
+    request_path        = "/"
+    host                = "localhost"
+    enable_logging      = false
+  }
+}

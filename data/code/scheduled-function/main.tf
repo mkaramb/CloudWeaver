@@ -1,0 +1,82 @@
+
+/******************************************
+	Scheduled Function Definition
+ *****************************************/
+
+resource "google_cloud_scheduler_job" "job" {
+  count = var.scheduler_job == null ? 1 : 0
+
+  name        = var.job_name
+  project     = var.project_id
+  region      = var.region
+  description = var.job_description
+  schedule    = var.job_schedule
+  time_zone   = var.time_zone
+
+  pubsub_target {
+    topic_name = "projects/${var.project_id}/topics/${module.pubsub_topic.topic}"
+    data       = var.message_data
+  }
+}
+
+/******************************************
+	PubSub Topic Definition
+ *****************************************/
+
+module "pubsub_topic" {
+  source              = "terraform-google-modules/pubsub/google"
+  version             = "~> 6.0"
+  topic               = var.topic_name
+  project_id          = var.project_id
+  create_topic        = var.scheduler_job == null ? true : false
+  grant_token_creator = var.grant_token_creator
+  topic_labels        = var.topic_labels
+  topic_kms_key_name  = var.topic_kms_key_name
+}
+
+/******************************************
+	Cloud Function Resource Definitions
+ *****************************************/
+
+resource "random_id" "suffix" {
+
+  byte_length = 4
+}
+
+module "main" {
+  source  = "terraform-google-modules/event-function/google"
+  version = "~> 3.0"
+
+  entry_point = var.function_entry_point
+  event_trigger = {
+    event_type = "google.pubsub.topic.publish"
+    resource   = var.scheduler_job == null ? module.pubsub_topic.topic : var.topic_name
+  }
+  name             = var.function_name
+  project_id       = var.project_id
+  region           = var.region
+  runtime          = var.function_runtime
+  source_directory = var.function_source_directory
+
+  source_dependent_files = var.function_source_dependent_files
+
+  available_memory_mb                = var.function_available_memory_mb
+  bucket_force_destroy               = var.bucket_force_destroy
+  bucket_labels                      = var.function_source_archive_bucket_labels
+  bucket_name                        = var.bucket_name == "" ? "${var.project_id}-scheduled-function-${random_id.suffix.hex}" : var.bucket_name
+  create_bucket                      = var.create_bucket
+  description                        = var.function_description
+  environment_variables              = var.function_environment_variables
+  secret_environment_variables       = var.function_secret_environment_variables
+  event_trigger_failure_policy_retry = var.function_event_trigger_failure_policy_retry
+  labels                             = var.function_labels
+  service_account_email              = var.function_service_account_email
+  timeout_s                          = var.function_timeout_s
+  max_instances                      = var.function_max_instances
+  ingress_settings                   = var.ingress_settings
+  docker_registry                    = var.function_docker_registry
+  docker_repository                  = var.function_docker_repository
+  kms_key_name                       = var.function_kms_key_name
+  vpc_connector                      = var.vpc_connector
+  vpc_connector_egress_settings      = var.vpc_connector_egress_settings
+}

@@ -1,0 +1,241 @@
+ISSUE WITH es/log-export/examples/bigquery
+MISSING: README.md, main.tf, variables.tf
+
+ISSUE WITH es/log-export/examples/storage
+MISSING: README.md, main.tf, variables.tf
+
+ISSUE WITH es/log-export/examples/project
+MISSING: README.md, main.tf, variables.tf
+
+ISSUE WITH es/log-export/examples/pubsub
+MISSING: README.md, main.tf, variables.tf
+
+ISSUE WITH es/log-export/examples/logbucket
+MISSING: README.md, main.tf, variables.tf
+
+ISSUE WITH es/group
+MISSING DIR: modules
+
+ISSUE WITH es/kubernetes-engine/modules/services
+MISSING: README.md
+
+ISSUE WITH es/kubernetes-engine/examples/acm-terraform-blog-part3
+MISSING: main.tf, variables.tf
+
+ISSUE WITH es/kubernetes-engine/examples/acm-terraform-blog-part2
+MISSING: main.tf, variables.tf
+
+ISSUE WITH es/kubernetes-engine/examples/safer_cluster_iap_bastion
+MISSING: main.tf
+EXTRA: bastion.tf, cluster.tf, network.tf, kms.tf, apis.tf
+
+ISSUE WITH es/kubernetes-engine/examples/acm-terraform-blog-part1
+MISSING: main.tf, variables.tf
+
+ISSUE WITH es/kubernetes-engine/examples/private_zonal_with_networking
+MISSING: README.md
+
+ISSUE WITH es/pubsub
+MISSING DIR: modules
+
+ISSUE WITH es/utils
+MISSING DIR: modules
+
+ISSUE WITH es/utils/examples/additional_regions
+MISSING: variables.tf
+
+ISSUE WITH es/utils/examples/multi_region
+MISSING: variables.tf
+
+ISSUE WITH es/utils/examples/simple_example
+MISSING: variables.tf
+
+ISSUE WITH es/slo
+MISSING: main.tf, variables.tf
+
+ISSUE WITH es/slo/modules/slo-native
+MISSING: README.md, main.tf
+EXTRA: dynamic.tf, locals.tf
+
+ISSUE WITH es/slo/modules/slo-generator
+MISSING: README.md
+
+ISSUE WITH es/slo/examples/native
+MISSING: README.md, main.tf, variables.tf
+
+ISSUE WITH es/slo/examples/slo-generator
+MISSING: README.md, main.tf, variables.tf
+
+ISSUE WITH es/network/examples/routes
+MISSING: README.md
+EXTRA: outputs.md
+
+ISSUE WITH es/data-fusion/modules/wait_healthy
+EXTRA: wait_healthy.sh
+
+ISSUE WITH es/data-fusion/modules/instance
+MISSING: README.md
+
+ISSUE WITH es/data-fusion/examples/hub_artifact
+MISSING: README.md, variables.tf
+
+ISSUE WITH es/container-vm
+EXTRA: requirements.txt
+
+ISSUE WITH es/gsuite-export
+MISSING DIR: modules
+
+ISSUE WITH es/gsuite-export/examples/stackdriver
+MISSING: README.md
+
+ISSUE WITH es/gsuite-export/examples/bigquery
+MISSING: README.md
+
+ISSUE WITH es/gsuite-export/examples/storage
+MISSING: README.md
+
+ISSUE WITH es/gsuite-export/examples/pubsub
+MISSING: README.md
+
+ISSUE WITH es/github-actions-runners
+MISSING: main.tf, variables.tf
+
+ISSUE WITH es/github-actions-runners/examples/gh-runner-mig-native-packer
+EXTRA: shutdown.sh, startup.sh
+
+ISSUE WITH es/cloud-dns/modules/dns_response_policy
+MISSING: variables.tf
+
+ISSUE WITH es/cloud-dns/examples/dns_response_policy
+MISSING: README.md, variables.tf
+
+ISSUE WITH es/cloud-dns/examples/forwarding-zone
+MISSING: README.md
+
+ISSUE WITH es/cloud-dns/examples/peering-zone
+MISSING: README.md
+
+ISSUE WITH es/cloud-dns/examples/public-zone
+MISSING: README.md
+
+ISSUE WITH es/cloud-dns/examples/private-zone
+MISSING: README.md
+
+ISSUE WITH es/iam
+MISSING: main.tf, variables.tf
+
+ISSUE WITH es/bigquery/examples/scheduled_queries
+MISSING: variables.tf
+
+ISSUE WITH es/cloud-datastore
+MISSING DIR: modules
+
+ISSUE WITH es/sql-db
+MISSING: main.tf, variables.tf
+
+ISSUE WITH es/vm
+MISSING: main.tf, variables.tf
+
+ISSUE WITH es/vm/examples/preemptible_and_regular_instance_templates
+MISSING: README.md, main.tf, variables.tf
+
+ISSUE WITH es/vm/examples/umig
+MISSING: README.md, main.tf, variables.tf
+
+ISSUE WITH es/vm/examples/compute_instance
+MISSING: README.md, main.tf, variables.tf
+
+ISSUE WITH es/vm/examples/mig_with_percent
+MISSING: README.md, main.tf, variables.tf
+
+ISSUE WITH es/vm/examples/instance_template
+MISSING: README.md, main.tf, variables.tf
+
+ISSUE WITH es/vm/examples/mig
+MISSING: README.md, main.tf, variables.tf
+
+ISSUE WITH es/cloud-operations
+MISSING: main.tf, variables.tf
+
+ISSUE WITH es/gcloud/examples/dependency_example
+MISSING: variables.tf
+
+ISSUE WITH es/bootstrap/modules/im_cloudbuild_workspace
+MISSING: main.tf
+EXTRA: sa.tf, cb.tf, gitlab.tf, repo.tf, github.tf
+
+ISSUE WITH es/bootstrap/modules/tf_cloudbuild_workspace
+MISSING: main.tf
+EXTRA: buckets.tf, sa.tf, cb.tf
+
+ISSUE WITH es/bootstrap/modules/tf_cloudbuild_builder
+MISSING: main.tf
+EXTRA: gar.tf, cb.tf, workflow.tf
+
+ISSUE WITH es/memorystore/examples/basic
+MISSING: README.md, main.tf, variables.tf
+EXTRA: memorystore.tf
+
+ISSUE WITH es/memorystore/examples/memcache
+MISSING: README.md
+
+ISSUE WITH es/vpn/examples/multi_tunnels
+MISSING: README.md, main.tf
+EXTRA: prod.tf, mgmt.tf
+
+ISSUE WITH es/vpn/examples/multi_external_vpn_gateways
+MISSING: README.md, main.tf
+EXTRA: prod.tf
+
+ISSUE WITH es/vpn/examples/vpn_ha
+MISSING: README.md, main.tf
+EXTRA: prod.tf, mgmt.tf
+
+ISSUE WITH es/vpn/examples/single_tunnels
+MISSING: README.md, main.tf
+EXTRA: prod.tf, mgmt.tf
+
+ISSUE WITH es/folders
+MISSING DIR: modules
+
+ISSUE WITH es/datalab
+MISSING: main.tf, variables.tf
+
+ISSUE WITH es/vault/examples/shared_vpc_internal
+MISSING: README.md
+
+ISSUE WITH es/composer/modules/composer_net
+MISSING: main.tf
+EXTRA: fw.tf, iam.tf, dns.tf
+
+ISSUE WITH es/composer/examples/composer_v2_sharedvpc_prereq
+MISSING: main.tf
+EXTRA: composer.tf
+
+ISSUE WITH es/lb-internal
+MISSING DIR: modules
+
+ISSUE WITH es/sap
+MISSING: main.tf, variables.tf
+
+ISSUE WITH es/address
+MISSING DIR: modules
+
+ISSUE WITH es/cloud-nat
+MISSING DIR: modules
+
+ISSUE WITH es/cloud-router/modules/interface
+MISSING: README.md
+
+ISSUE WITH es/cloud-router/examples/interconnect_attachment
+MISSING: README.md, variables.tf
+
+ISSUE WITH es/startup-scripts
+MISSING DIR: modules
+
+ISSUE WITH es/kms
+MISSING DIR: modules
+
+ISSUE WITH es/healthcare
+MISSING DIR: modules
+

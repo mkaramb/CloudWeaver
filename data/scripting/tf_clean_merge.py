@@ -123,7 +123,7 @@ def merge_extra_tf_files(dir_path, log_file):
             
             if extra_tf_files:
                 # logging
-                log_file.write(f"\nMerging files into {main_tf_path[25:]}: {', '.join(extra_tf_files)}\n")
+                log_file.write(f"\nMerging files into {main_tf_path[26:]}: {', '.join(extra_tf_files)}\n")
                 with open(main_tf_path, 'a', encoding='utf-8') as main_tf:
                     for tf_file in extra_tf_files:
                         tf_file_path = os.path.join(root, tf_file)

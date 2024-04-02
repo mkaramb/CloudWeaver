@@ -12,7 +12,7 @@ The `langchain` folder contains Python notebooks and scripts that leverage the L
 
 - **Database Processing File:** Focuses on extracting files from the database, assigning metadata, and organizing them into a structured format. It showcases the process of cloning a GitHub repository with Terraform code samples, navigating through its directory structure, reading the content of Terraform files, and generating a pickle file with metadata for further processing.
 
-- **Chaining Updated File:** Provides the logic for a chat service function that interacts with users to refine project descriptions, suggest improvements, and generate Terraform code. It illustrates how to use LangChain to create interactive chains that incorporate user feedback, suggest architectural improvements, and ultimately produce ready-to-use Terraform configurations.
+- **Chaining Updated File:** Provides the logic for a chat service function that interacts with users to refine project descriptions, suggest improvements, and generate Terraform code. It illustrates how to use LangChain to create interactive chains that incorporate user feedback, suggest architectural improvements, and ultimately produce ready-to-use Terraform configurations. The different chaining files represent different iterations of the chain, whether these be different prompts or using different LCEL techniques.
 
 ## Setup and Usage
 

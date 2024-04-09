@@ -1,18 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Chat Application</title>
+		<link rel="stylesheet" href="static/styles/style.css" />
+		<script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+		<script src="/static/scripts/script.js" defer></script>
+	</head>
 	<body>
-		<form action="/chat" method="post">
-			<label for="project_description">Project Description:</label><br />
-			<textarea id="project_description" name="project_description"></textarea
-			><br />
-			<label for="user_architecture_feedback">User Architecture Feedback:</label
-			><br />
-			<textarea
-				id="user_architecture_feedback"
-				name="user_architecture_feedback"
-			></textarea
-			><br />
-			<input type="submit" value="Submit" />
-		</form>
+		<div id="chat-container">
+			<div id="message-container">
+				<!-- Messages will be displayed here -->
+			</div>
+			<div id="send-container">
+				<input
+					type="text"
+					id="message-input"
+					placeholder="Type your message here..."
+				/>
+				<button id="send-button">Send</button>
+			</div>
+		</div>
 	</body>
 </html>

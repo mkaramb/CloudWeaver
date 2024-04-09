@@ -1,9 +1,6 @@
-#main.py
-from app import create_app
-import os
-
-app = create_app()
+from flask import Flask, render_template, request, jsonify
+from flask_socketio import SocketIO, send, emit
 
 if __name__ == '__main__':
-  port = int(os.environ.get('PORT', 8080))
-  app.run(host='0.0.0.0', port=port)
+# Increase Gunicorn timeout to 60 seconds
+  socketio.run(app, debug=True, log_output=True, log_level=logging.DEBUG, worker_class="gevent", timeout=60)

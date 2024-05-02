@@ -1,8 +1,11 @@
-Adding OAuth in HTML:
+# User Authentication and Chat Storage with Replit OAuth and MongoDB Atlas
+#### This folder references [@george137/replit-auth-test](https://replit.com/@george137/replit-auth-test#templates/index.html)
 
+## To Add OAuth in Replit HTML:
+```
 <body>
   {% if user_id %}
-  <h1>Hello, {{ user_name }}!</h1>
+  <h4>Hello, {{ user_name }}!</h4>
   <p>Your user id is {{ user_id }}.</p>
   {% else %} Hello! Please log in.
   <div>
@@ -13,10 +16,9 @@ Adding OAuth in HTML:
   </div>
   {% endif %}
 </body>
-
-
-Home Route:
-
+```
+## Home Route Example:
+```
 @app.route('/')
 def hello_world():
     return render_template(
@@ -25,25 +27,27 @@ def hello_world():
         user_name=request.headers['X-Replit-User-Name'],
         user_roles=request.headers['X-Replit-User-Roles']
     )
-
-MongoDB:
+```
+## MongoDB Setup:
+MongoDB Atlas: https://cloud.mongodb.com/v2/
 
 Conncetion string = "mongodb+srv://gtram:8wN4ms6689uiPoFv@cloudweaver-cluster.yg6mmvh.mongodb.net/"
-USE URL ENCODING: /?replitID=adsj23rn3d
 
-
+USING URL ENCODING, E.X.: /?replitID=adsj23rn3d
+```
 !python -m pip install "pymongo[srv]"
 
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
 uri = "mongodb+srv://gtram:8wN4ms6689uiPoFv@cloudweaver-cluster.yg6mmvh.mongodb.net/?retryWrites=true&w=majority&appName=cloudweaver-cluster"
-
-# Create a new client and connect to the server
+```
+## Create a new client and connect to the server
+```
 client = MongoClient(uri, server_api=ServerApi('1'))
-
-Schemas:
-
+```
+## Schemas:
+```
 cloudweaver.replit-users:
 {"_id":{"$oid":"6625954047a32746d0efaaf8"},
 "replit_ID":"X-Replit-User-Id",
@@ -57,11 +61,13 @@ cloudweaver.prev-chat:
 "initial_prompt":"initial_prompt",
 "terraform_code":"terraform_code"
 }
+```
 
-
-# Send a ping to confirm a successful connection
+## Send a ping to confirm a successful connection
+```
 try:
     client.admin.command('ping')
     print("Pinged your deployment. You successfully connected to MongoDB!")
 except Exception as e:
     print(e)
+```

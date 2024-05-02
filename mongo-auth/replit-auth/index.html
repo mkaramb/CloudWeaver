@@ -14,11 +14,149 @@
   <p id="user"></p>
 
   <script type="module">
-    const user = await getUserInfo()
+    const user = await getUserInfo();
     if (user) {
-      document.getElementById('user').innerHTML = "Hello " + user.teams
+      document.getElementById('user').innerHTML = "Hello " + user.name;
+      
+      const response = await fetch('/upload', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          replit_ID: user.id,
+          username: user.name,
+          usertype: user.roles
+        })
+      });
+      
+      if (response.ok) {
+        console.log('User data uploaded successfully');
+      } else {
+        console.error('Upload Error');
+      }
     }
   </script>
 </body>
+<style>
+  html, body {
+  height: 100%;
+  width: 100%;
+  background-color:#121212;
+}
 
+@font-face {
+  font-family: "Font";
+  src: url("https://css.replit.cool/Chess/src/fonts/Poppins-Bold[1].ttf");
+}
+
+h1{
+  font-family:"Font";
+  font-size:75px;
+  color:#00bbf9;
+}
+
+p{
+  font-family:"Font";
+  font-size:22px;
+  color:#00bbf9;
+}
+
+a{
+  font-family:"Font";
+  color:white;
+  font-size:22px;
+  text-decoration:none;
+  cursor:help;
+  text-shadow:2px 2px #00bbf9;
+}
+
+address{
+  font-family:"Font";
+  font-size:18px;
+  text-shadow:2px 2px #00bbf9;
+}
+
+summary{
+  font-family:"Font";
+  font-size:20px;
+  text-shadow:2px 2px #c400fa;
+  transition:0.7s;
+}
+
+details{
+  font-family:"Font";
+  font-size:20px;
+  text-shadow:2px 2px #c400fa;
+}
+
+::placeholder{
+  font-family:"Font";
+  font-size:25px;
+  color:#787878;
+}
+
+button{
+  width:200px;
+  height:55px;
+  font-family:"Trebuchet MS";
+  font-size:25px;
+  box-shadow:4px 4px white;
+  border-color:#00fa79;
+  color:white;
+  background-color:#00fa79;
+  border-radius:5px;
+}
+
+button:hover{
+  font-family:"Trebuchet MS";
+  font-size:25px;
+  background-color:white;
+  box-shadow:4px 4px #00fa79;
+  color:#00fa79;
+  border-radius:5px;
+  border-color:white;
+  transition:0.7s;
+}
+
+button:disabled{
+  font-family:"Trebuchet MS";
+  font-size:25px;
+  background-color:white;
+  box-shadow:4px 4px #00fa79;
+  border-radius:5px;
+  border-color:#121212;
+  cursor:not-allowed;
+  color:white;
+}
+
+.box-position{
+  position:relative;
+}
+  
+.box{
+  width:300px;
+  height:300px;
+  background-color:#495057;
+  border-radius:5px;
+  border-color:white;
+  position:relative;
+  top:150px;
+}
+
+.box-text{
+  position:relative;
+  top:60px;
+}
+
+.box-button{
+  position:relative;
+  top:20px;
+}
+
+.box-text-auth{
+  position:relative;
+  top:10px;
+}
+</style>
 </html>

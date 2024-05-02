@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://replit.com/public/js/repl-auth-v2.js"></script>
+</head>
+
+<body>
+  <button onclick="LoginWithReplit()"> Login with Replit</button>
+  <p id="user"></p>
+
+  <script type="module">
+    const user = await getUserInfo()
+    if (user) {
+      document.getElementById('user').innerHTML = "Hello " + user.teams
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,158 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  background-color: #f0f2f5;
+}
+
+.logo {
+    width: 150px;
+    height: 24px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+
+#startup-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Adds space between buttons */
+}
+
+#chat-container {
+    width: 60%;
+    min-width: 500px;
+    height: 80vh;
+    min-height: 400px;
+    background: #f0f2f5; 
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+
+#message-container {
+  padding: 20px;
+  overflow-y: auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Adjust alignment to center */
+}
+
+.user-message, .bot-response {
+  max-width: 80%;
+  align-self: flex-start; /* Align all messages to the start */
+  background-color: #f0f2f5; /* Light gray background for both for consistency */
+  padding: 5px;
+  border-radius: 5px;
+  margin: 2px;
+}
+
+.user-message {
+  align-self: flex-end;
+  background-color: #f0f2f5; 
+}
+/* Add styles for the user image */
+.user-image {
+    width: 25px; /* Adjust image width as needed */
+    height: auto; /* Maintain aspect ratio */
+    align-self: flex-end
+}
+
+.bot-image {
+  width: 25px;
+  height: auto;
+  align-self: flex-start
+}
+
+#actions-container {
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+#send-container {
+  display: flex;
+  padding: 20px;
+}
+
+#message-input {
+  flex-grow: 1;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 13px;
+  background-color: white !important; /* Ensures background is white */
+  border-radius: 10px;
+  border: 2px solid #2359a6 !important; /* Ensures border is the correct color */
+  margin-right: 10px;
+  font-family: "area-normal", sans-serif;
+  font-size: 13px;
+  color: black !important; /* Ensures text is black */
+}
+
+#send-button, #new-project-button, #previous-terraform-button {
+  padding: 10px 20px;
+  background-color: #f0f2f5; 
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#send-button:hover, #new-project-button:hover, #previous-terraform-button:hover {
+  background-color: #f0f2f5; 
+}
+
+.download-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: blue;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.download-button:hover {
+  color: darkblue;
+  text-decoration
+}
+
+.button-style {
+    box-sizing: border-box; /* Includes padding and border in the element's dimension */
+    position: relative;
+    width: 170px;
+    height: 27px;
+    background-color: white !important; /* Ensures background is white */
+    border-radius: 10px;
+    border: 2px solid #2359a6 !important; /* Ensures border is the correct color */
+    text-align: center;
+    line-height: 27px;
+    font-family: "area-normal", sans-serif;
+    font-size: 13px;
+    color: black !important; /* Ensures text is black */
+    cursor: pointer;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.send-button img {
+    width: 50px;  /* Example size, adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    cursor: pointer; /* Ensure it's clear this is clickable */
+}
+
+.send-button:hover img {
+    opacity: 0.8; /* Optional: style change on hover */
+}
+

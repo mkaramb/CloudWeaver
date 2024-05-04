@@ -123,7 +123,7 @@ def lint_terraform_code(code):
 
   # Now run the linter on the file
   result = subprocess.run(
-      ["/home/runner/CloudWeaverFlaskFix/linter/tflint", temp_file_name],
+      ["/home/runner/CloudWeaver/linter/tflint", temp_file_name],
       capture_output=True,
       text=True)
 

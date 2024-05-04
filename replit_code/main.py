@@ -1,5 +1,5 @@
 from functions.chat_service import generate_architecture_func, revise_architecture_func, generate_improvements_func, generate_terraform_func, revise_terraform_code
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect, url_for, Response
 from utils.markdown_functions import format_markdown, format_to_markdown
 from prompts.chat_prompts import build_final_prompt
 
@@ -216,7 +216,7 @@ def download_terraform():
   else:
     return jsonify({
         'response': "Download cancelled.",
-        'nextState': 'Completed'
+        'nextState': "Completed"
     })
 
 
